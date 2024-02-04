@@ -1,15 +1,15 @@
 import {RAPID_API_KEY} from '@env';
 import axios from 'axios';
-import { useEffect } from 'react';
-import { Alert } from 'react-native';
+import { useEffect , useState  } from 'react';
 
 
-const useFetch = ({endpoint , query}) => {
+const useFetch = (endpoint , query) => {
 
     const [data , setData] = useState([]);
     const [isLoading , setIsLoading] = useState(false);
     const [error , setError] = useState(null);
     const rapidApiKey = RAPID_API_KEY
+
     const options = {
         method: 'GET',
         url: `https://jsearch.p.rapidapi.com/${endpoint}`,
@@ -33,8 +33,7 @@ const useFetch = ({endpoint , query}) => {
 
         }catch (error) {
             setError(error);
-            Alert("there is an error");
-
+            console.log(error);
         }finally{
             setIsLoading(false);
         }
@@ -42,7 +41,7 @@ const useFetch = ({endpoint , query}) => {
 
       useEffect(() => {
         fetch();
-      })
+      } , [])
 
       const refetch = () => {
         setIsLoading(true);
