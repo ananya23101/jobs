@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   container: (selectedJob, item) => ({
     width: 250,
     padding: SIZES.xLarge,
-    backgroundColor: selectedJob === item.job_id ? COLORS.primary : "#FFF",
+    backgroundColor: "#FFF",
     borderRadius: SIZES.medium,
     justifyContent: "space-between",
     ...SHADOWS.medium,
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   jobName: (selectedJob, item) => ({
     fontSize: SIZES.large,
     fontFamily: FONT.medium,
-    color: selectedJob === item.job_id ? COLORS.white : COLORS.primary,
+    color: "#000",
   }),
   infoWrapper: {
     flexDirection: "row",
@@ -44,10 +44,10 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
-  publisher: (selectedJob) => ({
+  publisher: (selectedJob, item) => ({
     fontSize: SIZES.medium - 2,
     fontFamily: FONT.bold,
-    color: selectedJob === item.job_id ? COLORS.white : COLORS.primary,
+    color: "#000",
   }),
   location: {
     fontSize: SIZES.medium - 2,
